@@ -181,7 +181,7 @@ class SmartIRClimate(ClimateDevice, RestoreEntity):
     def state(self):
         """Return the current state."""
         if self._on_by_remote:
-            return STATE_ON
+            return self._last_on_operation
         if self.hvac_mode != HVAC_MODE_OFF:
             return self.hvac_mode
         return HVAC_MODE_OFF
